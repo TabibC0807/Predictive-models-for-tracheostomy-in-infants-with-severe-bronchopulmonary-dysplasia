@@ -1,1 +1,23 @@
 # Project-2
+PHP2550 Project 2
+
+## Overview(from Dr. Alice Paul's canvas site):
+This project is a collaboration with Dr. Chris Schmid in the Biostatistics Department. The exact indication criteria and timing of tracheostomy placement in neonates with severe bronchopulmonary dysplasia (sBPD) remains unclear. Studies suggest that earlier tracheostomy placement may be beneficial for growth. Previous analyses of large databases have shown that likelihood of tracheostomy placement or death can be accurately predicted based on baseline demographics and clinical diagnoses, but these analyses have not used detailed respiratory parameters and have not provided prediction at different postmenstrual ages (PMA). Accurate prediction of need for tracheostomy at early PMA would have implications for counseling families and timing of tracheostomy placement, which is an active area of debate in sBPD. 
+
+My goal is to develop a regression model to predict the composite outcome of tracheostomy/death to guide the indication criteria and timing of tracheostomy placement. In the report, I fit a mixed effect regression model and interpret key variables as it relates to the composite outcome of tracheostomy placement and death. The data is a national data set of demographic, diagnostic, and respiratory parameters of infants with sBPD admitted to collaborative NICUs and with known respiratory support parameters at 36 weeks PMA.
+
+
+## Objective
+Although many studies suggests that early tracheostomy placement for babies with severe bronchopulmonary dysplasia (sBPD) has benefits, the work around the criteria and timing of the precedure is still incomplete. In this research project, we will attempt to address this issue by developing a regression model to predict the composite outcome of tracheostomy/death to guide the indication criteria and timing of tracheostomy placement. In our model we will include birth variables, respiratory support variables, and infant data at 36 and 44 weeks corrected gestational age(CGA). We estimate an ideal time frame to refer a patient for tracheostomy by providing predictions across different postmenstrual ages. 
+
+## Methods
+We first perform multiple data imputation(m = 5) using the MICE package in R and split the data into training and testing sets with a 70-30 split. From our exploratory data analysis we know that the composite outcome of tracheostomy and death of the neonatal infants are not evenly distributed throughout the centers. This is due to the fact that the patient’s severity with sBPD is correlated with which center they are placed in. Another point to consider with the centers is that once we fit a model, it will be difficult to get accurate predictions from said models since we cannot extrapolate outside the centers given in the data. Because of this we were either left with the option of leaving out the center variable and fit a logistic generalized linear model or fit a generalized mixed effects model with the center variable as a random intercept. We chose the latter as we believe that the random intercept will capture the variability between centers for each patient based on their differing levels of severity. In our fixed effect model we consider the composite outcome of tracheostomy and death as the binary outcome variable and the patients birth variables, respiratory support variables, and infant data at 36 and 44 weeks corrected gestational age(CGA) as predictors.
+
+## Conclusion
+
+In conclusion, we found that a full mixed effect model is best for prediction for the outcome of death and trachoestomy. Additionally, implementing a full model with both the 36 week and 44 week data allowed us to compare the coefficeints between 36 and 44 week data. We found that the variables describing the fraction of inspired Oxygen, medication for Pulmonary Hypertension(PH) and Peak Inspiratory Pressure (cmH2O) has opposite effects on the log odds of death/tracheostomy. We also found that the influence andom effects of the centers on the log odds of the outcome accurately depict what we discussed in the EDA section.
+
+Some of the setbacks of our work here is that we don’t take into account some of the outliers in the data, although we did remove outliers heavily affecting the data we predicted on. There are many missing values that are indiscriminate between 36 weeks and 44 weeks which can sway the bias of the models. The model is difficult to generalize outside of centers included in the data. Another set back is that we don't implement interaction terms into the model because we want interpretation in the clinical setting to be simple, easy and efficient. One could try and implement interaction terms to attempt to see if the model prediction improves.
+
+
+
