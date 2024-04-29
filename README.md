@@ -1,7 +1,7 @@
-# Project-2
+# Predictive models for tracheostomy in infants with severe bronchopulmonary dysplasia
 PHP2550 Project 2
 
-## Overview(from Dr. Alice Paul's canvas site):
+## Overview:
 This project is a collaboration with Dr. Chris Schmid in the Biostatistics Department. The exact indication criteria and timing of tracheostomy placement in neonates with severe bronchopulmonary dysplasia (sBPD) remains unclear. Studies suggest that earlier tracheostomy placement may be beneficial for growth. Previous analyses of large databases have shown that likelihood of tracheostomy placement or death can be accurately predicted based on baseline demographics and clinical diagnoses, but these analyses have not used detailed respiratory parameters and have not provided prediction at different postmenstrual ages (PMA). Accurate prediction of need for tracheostomy at early PMA would have implications for counseling families and timing of tracheostomy placement, which is an active area of debate in sBPD. 
 
 My goal is to develop a regression model to predict the composite outcome of tracheostomy/death to guide the indication criteria and timing of tracheostomy placement. In the report, I fit a mixed effect regression model and interpret key variables as it relates to the composite outcome of tracheostomy placement and death. The data is a national data set of demographic, diagnostic, and respiratory parameters of infants with sBPD admitted to collaborative NICUs and with known respiratory support parameters at 36 weeks PMA.
